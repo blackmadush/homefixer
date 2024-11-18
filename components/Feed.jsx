@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-import PromptCard from "./PromptCard";
+import PromptCard from "./PromptCard.jsx";
 
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
@@ -40,7 +40,8 @@ const Feed = () => {
     const regex = new RegExp(searchtext, "i");
     return allPosts.filter(
       (item) =>
-        regex.test(item.creator.username) ||
+        regex.test(item.name) ||
+        regex.test(item.location) ||
         regex.test(item.tag) ||
         regex.test(item.prompt)
     );
@@ -71,7 +72,7 @@ const Feed = () => {
       <form className="relative w-full flex-center">
         <input
           type="text"
-          placeholder="Search for a tag or a username"
+          placeholder="Search for profession, name, or location"
           value={searchText}
           onChange={handleSearchChange}
           required

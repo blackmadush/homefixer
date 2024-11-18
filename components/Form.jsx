@@ -4,14 +4,11 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   return (
     <section className="w-full max-w-full flex-start flex-col">
       <h1 className="head_text text-left">
-        <span className="blue_gradient">
-          {type}
-          Post
-        </span>
+        <span className="blue_gradient">{type} Listing</span>
       </h1>
       <p className="desc text-left max-w-md">
-        {type} and share amazing prompts with the world, and let your
-        Imagination run wild with any AI powered platforms. imagination
+        {type} and share your professional services with the community. Let
+        people know about your skills and expertise.
       </p>
 
       <form
@@ -20,13 +17,53 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       >
         <label>
           <span className="font-satoshi font-semibold text-gray-700 text-base">
-            Your AI Prompt
+            Your Name
+          </span>
+          <input
+            value={post.name}
+            onChange={(e) => setPost({ ...post, name: e.target.value })}
+            placeholder="Enter your name"
+            required
+            className="form_input"
+          />
+        </label>
+
+        <label>
+          <span className="font-satoshi font-semibold text-gray-700 text-base">
+            Mobile Number
+          </span>
+          <input
+            type="tel"
+            value={post.mobile}
+            onChange={(e) => setPost({ ...post, mobile: e.target.value })}
+            placeholder="Enter your mobile number"
+            required
+            className="form_input"
+          />
+        </label>
+
+        <label>
+          <span className="font-satoshi font-semibold text-gray-700 text-base">
+            Location
+          </span>
+          <input
+            value={post.location}
+            onChange={(e) => setPost({ ...post, location: e.target.value })}
+            placeholder="Enter your location"
+            required
+            className="form_input"
+          />
+        </label>
+
+        <label>
+          <span className="font-satoshi font-semibold text-gray-700 text-base">
+            Describe Your Services
           </span>
 
           <textarea
             value={post.prompt}
             onChange={(e) => setPost({ ...post, prompt: e.target.value })}
-            placeholder="Write your prompt here..."
+            placeholder="Describe your services here..."
             required
             className="form_textarea"
           />
@@ -34,16 +71,16 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
 
         <label>
           <span className="font-satoshi font-semibold text-gray-700 text-base">
-            Tag{" "}
+            Profession{" "}
             <span className="font-normal">
-              (#product, #webdevelopment, #idea)
+              (e.g., #gardener, #plumber, #cleaner)
             </span>
           </span>
 
           <input
             value={post.tag}
             onChange={(e) => setPost({ ...post, tag: e.target.value })}
-            placeholder="#tag"
+            placeholder="#profession"
             required
             className="form_input"
           />
